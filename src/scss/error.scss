@@ -1,0 +1,117 @@
+@import "modules/common"
+, "modules/headers/market"
+;
+
+/***
+ *       ▄████████    ▄████████    ▄████████  ▄██████▄     ▄████████
+ *      ███    ███   ███    ███   ███    ███ ███    ███   ███    ███
+ *      ███    █▀    ███    ███   ███    ███ ███    ███   ███    ███
+ *     ▄███▄▄▄      ▄███▄▄▄▄██▀  ▄███▄▄▄▄██▀ ███    ███  ▄███▄▄▄▄██▀
+ *    ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ▀▀███▀▀▀▀▀   ███    ███ ▀▀███▀▀▀▀▀
+ *      ███    █▄  ▀███████████ ▀███████████ ███    ███ ▀███████████
+ *      ███    ███   ███    ███   ███    ███ ███    ███   ███    ███
+ *      ██████████   ███    ███   ███    ███  ▀██████▀    ███    ███
+ *                   ███    ███   ███    ███              ███    ███
+ */
+
+.errorPage {
+	text-align: center;
+	background-color: #c4beb7;
+
+	@include bp-small-only() {
+		padding: 32px 10px 64px;
+	}
+
+	@include bp-medium-up() {
+		padding-top: rem-calc(48);
+		min-height: rem-calc(396);
+	}
+
+	@include bp-large-up() {
+		padding-top: rem-calc(64);
+		min-height: rem-calc(528);
+	}
+
+	.logo {
+		svg {
+			@include bp-small-only() {
+				width: rem-calc(250);
+			}
+
+			@include bp-medium-up() {
+				width: rem-calc(259);
+			}
+
+			@include bp-large-up() {
+				width: rem-calc(345);
+			}
+		}
+	}
+
+	h1 {
+		font-family: $avenir-book;
+		text-transform: none;
+		color: #4e4e4e;
+		line-height: 1em;
+
+		@include bp-small-only() {
+			font-size: rem-calc(24);
+			line-height: rem-calc(28);
+		}
+
+		@include bp-medium-up() {
+			font-size: rem-calc(23);
+			margin-top: rem-calc(27);
+		}
+
+		@include bp-large-up() {
+			font-size: rem-calc(30);
+			margin-top: rem-calc(36);
+		}
+	}
+
+	a {
+		color: #ffffff;
+
+		&:hover {
+			color: #2d2d2d;
+		}
+	}
+
+	.backLink {
+		font-family: $avenir-book;
+		color: #4e4e4e;
+		margin-bottom: 0;
+
+		@include bp-small-only() {
+			font-size: rem-calc(16);
+			line-height: rem-calc(20);
+			margin-top: rem-calc(32);
+
+			.rwd-line {
+				display: inline;
+			}
+		}
+
+		@include bp-medium-up() {
+			font-size: rem-calc(18);
+			line-height: rem-calc(22);
+			margin-top: rem-calc(48);
+		}
+
+		@include bp-large-up() {
+			font-size: rem-calc(24);
+			line-height: rem-calc(29);
+			margin-top: rem-calc(64);
+		}
+
+		a {
+			color: #ffffff;
+
+			&:hover {
+				color: #4e4e4e;
+				text-decoration: underline;
+			}
+		}
+	}
+}

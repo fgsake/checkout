@@ -1,0 +1,638 @@
+@import "modules/common"
+, "modules/headers/market"
+;
+
+.checkoutPage {
+	.content {
+		.waiting-paypal {
+			background-color: rgba(0,0,0,0.6);
+			z-index: 10;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			top: 0;
+			right: 0;
+			display: none;
+
+			&.waiting {
+				display: block;
+			}
+
+			.waiting-copy {
+				background-color: rgba(0,0,0,0.8);
+				max-width: rem-calc(300);
+				font-size: rem-calc(18);
+				line-height: rem-calc(26);
+				color: #ffffff;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 40%;
+				padding: rem-calc(18) rem-calc(30);
+				text-align: center;
+				font-family: $avenir-medium;
+			}
+		}
+
+		background-color: #ebe7e3;
+		overflow: hidden;
+
+		.topBlock {
+			background-size: cover;
+			background-image: url(../../static/img/pricing/sonya_header_retouched.jpg);
+			background-repeat: no-repeat;
+			background-position: 72% 0%;
+			height: 100%;
+
+			@include bp-medium-up() {
+				background-position: 58% 78%;
+			}
+
+			@include bp-medium-768() {
+				background-position: 54% 79%;
+			}
+
+			.subtitleOverlay {
+				height: 100%;
+				width: rem-calc(120);
+				background-color: rgba(0, 0, 0, .4);
+
+				@include bp-medium-up() {
+					background-color: rgba(0, 0, 0, 0);
+				}
+
+				p {
+					font-family: $avenir-light;
+					padding: rem-calc(24) rem-calc(14);
+					font-size: rem-calc(16);
+					color: #ffffff;
+					text-align: left;
+					font-weight: 100;
+					line-height: rem-calc(24);
+					width: rem-calc(120);
+
+					@include bp-medium-up() {
+						text-align: left;
+						margin-top: auto;
+						line-height: rem-calc(30);
+						font-size: rem-calc(26);
+						padding: rem-calc(58) rem-calc(52);
+						width: rem-calc(401);
+					}
+				}
+			}
+		}
+
+		.loginForm {
+			padding-bottom: rem-calc(32);
+
+			label {
+				color: #868686;
+				font-family: $avenir-medium;
+			}
+
+			@include bp-medium-up() {
+				max-width: rem-calc(708);
+				margin: 0 auto;
+				padding-bottom: rem-calc(48);
+			}
+
+			fieldset {
+				border: none;
+
+				input {
+					border-width: 0;
+
+					/*&.ng-invalid {
+						&.ng-dirty {
+							color: #ff0000;
+						}
+					}*/
+				}
+
+				.lockCharge {
+					margin: 0;
+					padding: 0 rem-calc(20);
+
+					@include bp-medium-up() {
+						padding: 0;
+						width: rem-calc(464);
+						display: block;
+						margin: 0 auto;
+
+					}
+
+					.icon {
+						&.icon-lock {
+							display: block;
+							fill: #9e7c5e;
+							height: rem-calc(20);
+							width: rem-calc(20);
+							float: left;
+							margin-top: rem-calc(4);
+
+							@include bp-medium-up() {
+								margin-top: rem-calc(3);
+							}
+						}
+					}
+					.title {
+						color: #9e7c5e;
+						padding-left: rem-calc(30);
+
+						@include bp-medium-up() {
+							margin-bottom: rem-calc(10);
+							margin-top: rem-calc(10);
+							font-size: rem-calc(18);
+						}
+					}
+				}
+
+				.account {
+					@include bp-medium-up() {
+						width: 50%;
+						float: left;
+						padding-right: rem-calc(20);
+					}
+
+					.head {
+						font-size: rem-calc(18);
+						margin-top: rem-calc(36);
+					}
+
+					.passwordBlock {
+						display: inline;
+
+						#password {
+							width: 88%;
+							display: inline;
+							float: left;
+						}
+
+						.eye {
+							width: 12%;
+							display: inline;
+							background-color: #ffffff;
+							padding-top: rem-calc(9);
+							min-height: rem-calc(37);
+							float: left;
+							margin-bottom: rem-calc(16);
+
+							&.invalidAccount {
+								background-color: #ff0000;
+							}
+
+							svg {
+								height: rem-calc(18);
+
+								&.eye-open {
+									stroke: #7f7f7f;
+									fill: #ffffff;
+
+									.outside {
+										fill: #7f7f7f;
+									}
+								}
+							}
+						}
+
+						.passwordReqs {
+							font-size: rem-calc(12);
+							font-weight: 500;
+						}
+					}
+				}
+
+				.billing {
+					@include bp-medium-up() {
+						width: 50%;
+						float: right;
+						padding-left: rem-calc(20);
+					}
+
+					.paymentOption {
+						padding-top: rem-calc(80);
+
+						@include bp-medium-up() {
+							padding-top: rem-calc(36)
+						}
+
+						div {
+							display: block;
+							background-color: #c1c1c1;
+							color: #ffffff;
+							font-family: $novecento-medium;
+							text-transform: uppercase;
+							margin-bottom: rem-calc(12);
+							width: 50%;
+							float: left;
+							text-align: center;
+
+							@include bp-small-only() {
+								min-height:rem-calc(33);
+							}
+							@include bp-medium-up() {
+								min-height: rem-calc(36);
+							}
+
+							&.ccButton {
+								padding: rem-calc(9.5) rem-calc(14) rem-calc(8);
+
+								@include bp-medium-up() {
+									padding-top: rem-calc(9.5);
+									padding-bottom: rem-calc(6.5);
+								}
+
+								@include bp-large-up() {
+									padding: rem-calc(9.5) rem-calc(14) rem-calc(10.5);
+								}
+
+								.cc-copy {
+									line-height: rem-calc(16);
+									margin-bottom: 0;
+									margin-left: auto;
+									margin-right: auto;
+								}
+
+								&.selected {
+									overflow: hidden;
+									box-sizing: border-box;
+									-moz-box-sizing: border-box;
+									-webkit-box-sizing: border-box;
+									border: rem-calc(1) solid #00aeef;
+									background-color: #8a8a8a;
+									padding: rem-calc(8.5) rem-calc(13) rem-calc(7);
+								}
+							}
+
+							&.paypalButton {
+								padding-top: rem-calc(10);
+
+								@include bp-small-only() {
+									padding: rem-calc(10) rem-calc(15) rem-calc(5);
+									line-height: rem-calc(16);
+								}
+
+								&.selected {
+									overflow: hidden;
+									box-sizing: border-box;
+									-moz-box-sizing: border-box;
+									-webkit-box-sizing: border-box;
+									border: rem-calc(1) solid #00aeef;
+									background-color: #8a8a8a;
+									padding: rem-calc(9) rem-calc(14) rem-calc(4);
+								}
+
+								.paypal {
+									width: 100%;
+									fill: #ffffff;
+									height: rem-calc(16);
+									max-width: rem-calc(127);
+
+									@include bp-small-only() {
+										line-height: rem-calc(16);
+									}
+
+									@include bp-medium-up() {
+										height: rem-calc(18);
+										padding-left: rem-calc(3);
+									}
+								}
+							}
+						}
+					}
+
+					.cardInfo {
+						display: block;
+
+						&.hidden {
+							display: none;
+						}
+
+						.ccInfo {
+							display: block;
+
+							.expiry {
+								position: relative;
+								float: left;
+								padding-right: rem-calc(13);
+								width: 31%;
+
+								&.UK {
+									margin-top: rem-calc(22);
+								}
+							}
+
+							.cvv2 {
+								position: relative;
+								float: left;
+								width: 32%;
+								padding-right: rem-calc(13);
+								display: inline-block;
+
+								@include bp-medium-768() {
+									width: 35%;
+								}
+
+								#CVVbutton {
+									float: left;
+									width: 40%;
+									color: #ffffff;
+									background-color: #a6a6a6;
+									text-align: center;
+									padding: rem-calc(10.5) 0;
+								}
+
+								.cvvHelpModal {
+									color: #ffffff;
+									background-color: rgba(0, 0, 0, 0.7);
+									font-size: rem-calc(14);
+									line-height: rem-calc(18);
+									text-align: center;
+									padding: rem-calc(10) rem-calc(18);
+									width: rem-calc(168);
+									position: absolute;
+									top: rem-calc(-60);
+									z-index: 20;
+								}
+
+								&.UK {
+									margin-top: rem-calc(22);
+								}
+							}
+
+							.zipCode {
+								position: relative;
+								float: left;
+								width: 37%;
+
+								@include bp-medium-768() {
+									width: 34%;
+								}
+							}
+						}
+					}
+
+					.paypalCopy {
+						color: #868686;
+						display: none;
+						font-size: rem-calc(14);
+
+						&.visible {
+							display: block;
+							margin-top: rem-calc(66);
+							max-width: rem-calc(280);
+						}
+					}
+
+					#cardNumber, #expiry, #cvv2, #zipCode {
+						height: rem-calc(37);
+						padding: rem-calc(8);
+						margin: 0 0 rem-calc(16) 0;
+						background-color: #ffffff;
+					}
+
+					#cvv2 {
+						width: 60%;
+						float: left;
+					}
+
+					&.gift {
+						float: none;
+						margin-left: auto;
+						margin-right: auto;
+
+						.gift-email {
+							margin-top: rem-calc(36);
+						}
+
+						.paymentOption {
+							padding-top: 0;
+						}
+					}
+				}
+			}
+
+			.confirmEmail {
+				margin: rem-calc(40) rem-calc(8);
+				text-align: center;
+
+				.email {
+					color: #00aeef;
+				}
+			}
+
+			.button {
+				&.blue {
+					&.checkout {
+						width: rem-calc(210);
+						margin: rem-calc(12) auto 0;
+						padding: rem-calc(6);
+						font-size: rem-calc(16);
+						line-height: rem-calc(32);
+						display: block;
+
+						@include bp-medium-up() {
+							margin: rem-calc(30) auto;
+						}
+
+						&.paypal {
+							width: rem-calc(242);
+							font-size: rem-calc(15);
+
+							@include bp-medium-up() {
+								width: rem-calc(256);
+								font-size: rem-calc(16);
+							}
+						}
+					}
+				}
+			}
+
+			.error {
+				text-align: center;
+				padding-top: rem-calc(26);
+
+				&.cancelled {
+					color: #000;
+				}
+			}
+		}
+	}
+}
+
+header.header-checkout {
+	background-color: #ffffff;
+	height: rem-calc(60);
+	padding: 0;
+
+
+	.header {
+		max-width: $max-width;
+		margin: 0 auto;
+		position: relative;
+		padding: 0;
+
+		@include bp-large-900() {
+			padding: 0 37px 0 34px;
+		}
+	}
+
+	.logo {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		text-align: center;
+
+		a {
+			display: inline-block;
+			float: none;
+
+			object {
+				width: rem-calc(120);
+
+				@include bp-medium-up() {
+					width: rem-calc(185);
+				}
+			}
+
+			@include bp-small-only() {
+				margin: 18px 0;
+			}
+			@include bp-large-up() {
+				margin: 12px 0;
+			}
+		}
+	}
+
+	.links {
+		text-transform: uppercase;
+		display: block;
+		font-size: rem-calc(18);
+		margin: 0;
+		line-height: rem-calc(32);
+
+		@include bp-medium-up() {
+			font-size: rem-calc(14);
+			line-height: rem-calc(36);
+			margin: 0;
+			position: relative;
+			overflow: visible;
+		}
+
+		@include bp-medium-768() {
+			font-size: rem-calc(18);
+		}
+
+		li {
+			a {
+				@extend %svgIcon;
+
+				color: #898b8e;
+
+				.icon {
+					fill: #898b8e;
+				}
+
+				&:hover {
+					.icon {
+						.symbol {
+							fill: #ffffff;
+						}
+					}
+				}
+			}
+
+			&.browse {
+				letter-spacing: 0.05em;
+				display: block;
+				padding: 0;
+				margin-left: 0;
+
+
+				a {
+					padding: 12px;
+				}
+
+				.icon {
+					position: relative;
+					top: -2px;
+				}
+
+				&.active {
+					background-color: #ebe8e5;
+
+					li {
+						a {
+							color: #898b8e;
+
+							&:hover {
+								color: #000000;
+							}
+						}
+
+						&:hover {
+							color: #000000;
+
+							a {
+								color: #000000;
+							}
+						}
+					}
+				}
+			}
+
+			&.browse {
+				.icon {
+					-webkit-transform: rotate(180deg);
+					-moz-transform: rotate(180deg);
+					-ms-transform: rotate(180deg);
+					-o-transform: rotate(180deg);
+					transform: rotate(180deg);
+				}
+			}
+
+			&.hover,
+			&:hover {
+				background-color: #323232;
+
+				a {
+					color: #fff;
+
+					.icon {
+						fill: #fff;
+					}
+				}
+			}
+		}
+	}
+}
+
+footer {
+	min-height: rem-calc(140);
+	/*.inline-list {
+		&.legal {
+			.legal-links {
+				span {
+					@include bp-small-only() {
+						display: block;
+						border: none;
+					}
+				}
+			}
+
+			svg {
+				height: rem-calc(26);
+				fill: #474849;
+				position: relative;
+				top: rem-calc(13);
+
+				@include bp-small-only() {
+					position: static;
+					padding-right: rem-calc(8);
+				}
+			}
+		}
+	}*/
+}

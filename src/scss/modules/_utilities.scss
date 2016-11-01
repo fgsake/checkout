@@ -1,0 +1,219 @@
+$default-transition-duration: 300ms;
+$default-transition-function: ease-out;
+
+@mixin transition($properties, $duration: 300ms, $function: ease-out, $delay: 0ms) {
+	@include transition-property($properties);
+	@include transition-duration($duration);
+	@include transition-timing-function($function);
+	@include transition-delay($delay);
+}
+
+@mixin image-link-block() {
+	img {
+		-webkit-filter: brightness(1);
+		filter: brightness(1);
+
+		@include transition((-webkit-filter, filter));
+	}
+
+	a {
+		-webkit-filter: brightness(1);
+		filter: brightness(1);
+
+		@include transition((-webkit-filter, filter));
+	}
+
+	.icon {
+		fill: #ffffff;
+
+		@include transition((fill, background-color));
+	}
+
+	&:hover:not(.comingSoonVideo) {
+		img {
+			-webkit-filter: brightness(1.5);
+			filter: brightness(1.5);
+		}
+
+		a {
+			-webkit-filter: brightness(0.6667);
+			filter: brightness(0.6667);
+		}
+
+		.icon {
+			fill: #000000;
+		}
+	}
+
+	&.comingSoonVideo:hover {
+		a {
+			cursor: default;
+		}
+	}
+}
+
+@mixin text-link-block(
+	$background-color: #323232,
+	$text-color: #adadad,
+	$hover-background-color: #f6f3f0,
+	$hover-text-color: #323232
+) {
+	background-color: $background-color;
+	border-width: 2px;
+	border-style: solid;
+	border-color: $background-color;
+	@include transition(background-color);
+
+	a {
+		color: $text-color;
+		@include transition(color);
+
+		* {
+			color: $text-color;
+			@include transition(color);
+		}
+
+		.icon {
+			fill: $text-color;
+			@include transition(fill);
+		}
+	}
+
+	&:hover {
+		background-color: $hover-background-color !important;
+
+		a {
+			color: $hover-text-color !important;
+
+			* {
+				color: $hover-text-color !important;
+			}
+
+			.icon {
+				fill: $hover-text-color !important;
+			}
+		}
+	}
+}
+
+// Vendor prefixes
+@mixin vendorPrefix($map, $vendors: webkit moz ms o) {
+	@each $prop, $value in $map {
+		@if $vendors {
+			@each $vendor in $vendors {
+				#{"-" + $vendor + "-" + $prop}: #{$value};
+			}
+		}
+		// Dump regular property anyway
+		#{$prop}: #{$value};
+	}
+}
+
+// Prefixed transforms
+@mixin transform($value) {
+	@include vendorPrefix((transform: $value), webkit ms);
+}
+
+// Sizing stuff
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+// Positioning stuff
+@mixin position($position, $args) {
+	@each $o in top right bottom left {
+		$i: index($args, $o);
+
+		@if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+			#{$o}: nth($args, $i + 1);
+		}
+	}
+
+	position: $position;
+}
+
+@mixin absolute($args) {
+	@include position(absolute, $args);
+}
+
+@mixin fixed($args) {
+	@include position(fixed, $args);
+}
+
+@mixin relative($args) {
+	@include position(relative, $args);
+}
+
+// Easy CSS Triangles!
+@mixin triangle(
+	$direction,
+	$position,
+	$color: currentColor, 
+	$size: 1em
+) {
+	$direction: if(function-exists("to-lower-case") == true, to-lower-case($direction), $direction);
+
+	@if not index(top right bottom left, $direction) {
+		@warn "Direction must be one of `top`, `right`, `bottom`, or `left`; currently `#{$direction}`.";
+	} @else {
+		// Core stuff
+		@include absolute($position);
+		@include size(0);
+		content: '';
+		z-index: 2;
+
+		// Border stuff
+		border-#{opposite-position($direction)}: $size * 1.5 solid $color;
+		$perpendicular-border: $size solid transparent;
+
+		@if $direction == top or $direction == bottom {
+			border-left: $perpendicular-border;
+			border-right: $perpendicular-border;
+		} @else if $direction == right or $direction == left {
+			border-bottom: $perpendicular-border;
+			border-top: $perpendicular-border;
+		}
+	}
+}
+
+// ███    █▄      ███      ▄█   ▄█        ▄█      ███     ▄██   ▄
+// ███    ███ ▀█████████▄ ███  ███       ███  ▀█████████▄ ███   ██▄
+// ███    ███    ▀███▀▀██ ███▌ ███       ███▌    ▀███▀▀██ ███▄▄▄███
+// ███    ███     ███   ▀ ███▌ ███       ███▌     ███   ▀ ▀▀▀▀▀▀███
+// ███    ███     ███     ███▌ ███       ███▌     ███     ▄██   ███
+// ███    ███     ███     ███  ███       ███      ███     ███   ███
+// ███    ███     ███     ███  ███▌    ▄ ███      ███     ███   ███
+// ████████▀     ▄████▀   █▀   █████▄▄██ █▀      ▄████▀    ▀█████▀
+//                             ▀
+
+.hang-indent {
+	text-indent: -.5em;
+}
+
+.hidden,
+.template {
+	display: none !important;
+}
+
+.trafficJunky {
+	position: fixed;
+	left: -9999px;
+	opacity: 0;
+}
+
+::-webkit-input-placeholder {
+	color: #a7a7a7;
+}
+
+:-moz-placeholder {
+	color: #a7a7a7;
+}
+
+::-moz-placeholder {
+	color: #a7a7a7;
+}
+
+:-ms-input-placeholder {
+	color: #a7a7a7;
+}

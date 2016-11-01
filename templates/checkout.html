@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>OMGYes: Checkout</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" id="metaViewport" content="width=device-width, initial-scale=1, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+	<meta name="_secCfg" content="http/false">
+
+	<meta name="_assetRootPath" content="/static">
+
+	<meta name="_tokenizationKey" content="{{ config.TOKENIZATION_KEY }}">
+</head>
+<body ng-app="frontEnd" class="en ng-scope">
+<section>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/checkout.css') }}">
+
+</section>
+
+<script src="{{ url_for('static', filename='js/head.min.js') }}"></script>
+
+
+<header class="header-checkout">
+	<div class="header">
+
+		<div class="logo">
+			<a href="/">
+				<object>
+
+
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 615.2 124.6" enable-background="new 0 0 615.2 124.6" xml:space="preserve">
+					<g>
+						<path class="letterG" fill="#4E4E4E" d="M370.1,58.3h-40.4v-8.6l-23.6,14.4l23.6,14.4V70h31.2c-0.5,7-1.7,11.4-4.6,16c-7,11.6-21.2,19.4-35.4,19.4 c-24.7,0-45.6-21.2-45.6-46.4c0-26,20.7-47.1,46.4-47.1c10.2,0,20.9,3.7,27.7,9.7c0.7,0.5,8.2,8,9.2,9.2c0,0,0.3,0.3,0.3,0.3 c2.1,2,5.5,2.3,7.9,0.4c2.4-1.9,3-5.3,1.5-7.9c-0.3-0.6-0.8-1.3-1.9-2.5C352.9,6.3,339.5,0,321.8,0c-32.6,0-59.2,26.3-59.2,58.8 c0,32.1,26.3,58.5,58.1,58.5c19.9,0,38.6-10.7,47.8-27.4c3.9-7.1,5.9-16.7,5.9-28C374.5,58.8,373.8,58.3,370.1,58.3z"></path>
+						<path class="letterY" fill="#A7A7A7" d="M457,1.9H452c-3.4,0-3.4,0-4.9,2.9l-27.7,47.8L392,4.8c-1.5-2.9-1.5-2.9-4.9-2.9h-4.9 c-3.1,0-4.6,0.9-4.4,2.4c0,0.7,0.5,1.7,1.2,3.2l34,59v44.4c0,3.9,0.5,4.4,4.4,4.4h3.9c3.9,0,4.4-0.5,4.4-4.4V66.5l34.5-59 c0.7-1.5,1.2-2.5,1.2-3.2C461.4,2.7,459.8,1.9,457,1.9z"></path>
+						<path class="letterE" fill="#A7A7A7" d="M529.6,1.9h-49.8c-3.9,0-4.4,0.5-4.4,4.4v104.5c0,3.9,0.5,4.4,4.4,4.4h49.8c3.9,0,4.4-0.5,4.4-4.4v-2.9 c0-3.9-0.5-4.4-4.4-4.4h-41.5V59.2h40.3c3.9,0,4.4-0.5,4.4-4.4v-2.9c0-3.9-0.5-4.4-4.4-4.4h-40.3V13.6h41.5c3.9,0,4.4-0.5,4.4-4.4 V6.3C534,2.4,533.5,1.9,529.6,1.9z"></path>
+						<path class="letterS" fill="#A7A7A7" d="M589.6,51.2c-15.5-6.8-15.5-6.8-19.5-9.5c-4.8-3.2-7.1-7.3-7.1-12.2c0-10,8.2-17.5,18.7-17.5 c7.1,0,13.4,3.2,17,8.5c1.5,2.4,1.9,2.7,3.2,2.7c0.7,0,1.5-0.3,2.9-1.4l2.7-1.7c2.2-1.5,2.7-2,2.7-3.2c0-0.7-0.3-1.5-1.4-2.9 C602.7,5.1,593,0,581.9,0c-18.2,0-31.8,12.6-31.8,29.2c0,12.4,6.6,20.6,22.9,27.9c15.8,7.1,15.8,7.1,20.1,9.9 c6.3,3.9,9.4,9.2,9.4,16.1c0,12.4-10,22.3-22.8,22.3c-10.5,0-19.9-7-22.1-16.8c-0.7-2.5-1.4-3.4-2.7-3.4c-0.3,0-1.4,0.2-2.7,0.7 l-3.7,1c-2.7,0.7-3.6,1.4-3.6,2.9c0,1.2,1,4.2,2.4,7.1c5.8,12.8,17.7,20.4,32,20.4c20.4,0,36-15.3,36-34.8 C615.2,68.2,607.9,59.2,589.6,51.2z"></path>
+						<path class="letterM" fill="#4E4E4E" d="M250.1,100.2L236.3,6c-0.5-3.1-1.2-4.1-3.1-4.1c-1,0-1.9,0.9-3.1,3.2l-39.9,86.2L151.1,5.1 c-1.2-2.6-1.9-3.2-3.1-3.2c-1.9,0-2.5,1-3.1,4.1l-15.9,101.9c-0.5,3.5,1.9,6.8,5.4,7.3s6.8-1.9,7.3-5.4L152,36.4l35,76.7 c1.2,2.5,1.9,3.2,3.2,3.2c1.2,0,1.9-0.7,3.1-3.2l35.5-76.7l8.7,65.7l-7.8,1.2l17.6,21.3L257.8,99L250.1,100.2z"></path>
+						<path class="letterO" fill="#4E4E4E" d="M109,27.7l6.6-4.7L90.1,12.3l2.1,27.6l6.7-4.9c4,6.9,6.3,15,6.3,23.6c0,25.8-20.7,46.7-46.2,46.7 c-25,0-46.2-20.9-46.2-45.9c0-26.7,20.2-47.6,45.9-47.6c4.5,0,8.8,0.6,12.9,1.8l0,0c0.4,0.1,0.8,0.1,1.3,0.1c3.3,0,6-2.7,6-6 c0-2.9-2.1-5.4-4.9-5.9C69.2,0.7,64.3,0,59.2,0C27.2,0,0,26.7,0,58c0,15.3,5.1,28.7,14.6,39.4c11.2,12.4,27.7,19.9,43.9,19.9 c32.8,0,59.5-26.2,59.5-58.6C118,47.3,114.7,36.8,109,27.7z"></path>
+					</g>
+				</svg>
+				</object>
+			</a>
+		</div>
+
+		<ul class="links inline-list left">
+			<li class="browse">
+				<a onclick="window.history.go(-1);">
+					<svg viewBox="0 0 32 32" class="icon icon-arrow-thick">
+
+						<polygon class="symbol" points="9.2,32 6.8,29.5 20.4,15.8 6.8,2.2 9.2,0 25.1,15.8"></polygon>
+
+					</svg>
+				</a>
+			</li>
+		</ul>
+	</div>
+</header>
+
+{% include 'partials/strings.html' %}
+
+<div class="checkoutPage ng-scope" ng-controller="checkout">
+	<div class="content">
+		<div class="topBlock">
+			<div class="subtitleOverlay">
+				<p>You're moments away from exploring OMGYes Season One.</p>
+			</div>
+		</div>
+		<form ng-if="! paypalConfirmation" novalidate="true" autocomplete="on" name="checkoutForm"
+					class="loginForm ng-pristine ng-scope ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength ng-valid-email"
+					id="checkoutForm" method="post" action="{{ url_for('do_checkout') }}">
+			<input type="hidden" name="option" ng-init="setOption('series')" value="series">
+			<input type="hidden" name="price" ng-init="checkoutFormData.price = 'null'" value="">
+
+			<input type="hidden" name="currency" ng-init="checkoutFormData.currency = 'USD'" value="USD">
+			<input type="hidden" name="affTransId" ng-init="checkoutFormData.x_affTransId = null" value="">
+			<fieldset>
+				<div class="lockCharge">
+
+					<svg viewBox="0 0 32 32" class="icon icon-lock">
+
+						<path d="M 23.1 11.1 h -1.8 V 7.0 C 21.3 4.1 18.9 1.8 15.9 1.8 S 10.7 4.1 10.7 7.0 v 3.9 h -1.8 V 7.0 C 8.9 3.2 12.2 0 15.9 0 s 7.0 3.2 7.0 7.0 V 11.1 z "></path>
+						<path d="M 27.9 32 H 4.1 V 13.8 h 23.8 V 32 z  M 5.9 30.2 h 20.2 V 15.6 H 5.9 V 30.2 z "></path>
+
+					</svg>
+
+					<p class="title ng-binding">A one-time payment of {{ displayPrice }} for permanent access to Season One</p>
+				</div>
+				<div class="account">
+					<p class="head">Create an account:</p>
+					<label for="email">Email Address</label><input type="email" name="email" id="email"
+																												 ng-model="checkoutFormData.email" autocomplete="email"
+																												 ng-keyup="checkOurField()">
+					<div class="passwordBlock">
+						<label for="password">Password (at least 6 characters)</label><input type="password" name="password"
+																																								 id="password"
+																																								 ng-model="checkoutFormData.password"
+																																								 autocomplete="new-password"
+																																								 ng-keyup="checkOurField()"
+																																								 ng-minlength="{{ passwordMinLength }}"
+																																								 ng-maxlength="{{ passwordMaxLength }}">
+						<div class="eye">
+							<!-- ngIf: ! showPassword -->
+							<div ng-if="! showPassword" ng-click="toggleShowPassword()" class="ng-scope">
+								<svg class="eye-closed" viewBox="0 0 24.3 18">
+									<line x1="21.71" y1="0.35" x2="2.87" y2="19.19"
+												style="fill: none;stroke: #7f7f7f;stroke-miterlimit: 10"></line>
+									<path d="M83.45,8c1-1.26,5.71-7.18,11.14-7.18A9.64,9.64,0,0,1,99.15,2.1l0.61-.61A10.62,10.62,0,0,0,94.59,0c-6.47,0-11.76,7.45-12,7.76L82.45,8l0.16,0.23a24.77,24.77,0,0,0,5.19,5.23l0.6-.6A24.65,24.65,0,0,1,83.45,8Zm16.4,0a5.23,5.23,0,0,0-1.5-3.67L95.85,6.82a1.72,1.72,0,0,1-2.44,2.44l-2.49,2.49A5.25,5.25,0,0,0,99.85,8Zm6.72-.23A24.29,24.29,0,0,0,100.64,2l-0.6.6A23.85,23.85,0,0,1,105.73,8c-1,1.26-5.72,7.18-11.14,7.18a10.23,10.23,0,0,1-5.35-1.75l-0.6.6a11.17,11.17,0,0,0,5.95,2c6.47,0,11.76-7.45,12-7.76L106.73,8Zm-12-1.49a1.73,1.73,0,0,1,.36,0l2.63-2.63A5.25,5.25,0,0,0,90.27,11L92.9,8.35A1.73,1.73,0,0,1,94.59,6.27Z"
+												transform="translate(-82.45 1.17)" style="fill: #7f7f7f"></path>
+								</svg>
+							</div><!-- end ngIf: ! showPassword -->
+						</div>
+					</div>
+				</div>
+				<div class="billing" ng-class="{ gift: null}">
+
+					<div class="paymentOption">
+						<div class="ccButton" ng-click="togglePayment()" ng-class="creditOption"><p class="cc-copy">Credit Card</p>
+						</div>
+						<div class="paypalButton" ng-click="togglePayment()" ng-class="paypalOption">
+							<svg class="paypal" viewBox="0 0 164 43.7">
+								<path class="st0"
+											d="M128.1,6.9c-4.1,0-7.3,1.1-9.8,1.6l-0.8,6.2c1.2-0.6,5.2-1.7,8.4-1.8c3.2-0.1,5.2,0.6,4.5,3.4    c-9.6,0-16.1,2-17.5,8.2c-1.9,10.7,9.8,10.4,14.5,5.7l-0.6,2.6h8.6l3.7-17C140.7,8.6,134.1,6.8,128.1,6.9z M128.7,24.3    c-0.5,2.3-2.3,3.3-4.5,3.4c-1.9,0.1-3.6-1.6-2.4-3.6c1-1.7,3.6-2.1,5.2-2.1c0.7,0,1.4,0,2.1,0C129,22.8,128.9,23.5,128.7,24.3z"></path>
+								<polygon class="st0" points="146.5,0.1 139.4,32.8 148.2,32.8 155.3,0.1 146.5,0.1 146.5,0.1  "></polygon>
+								<path class="st0"
+											d="M106.4,0.2h-16l-7.1,32.6h9.3L95.1,22h6.6c6.5,0,11.9-4,13.3-10.7C116.6,3.7,111,0.2,106.4,0.2z M106.2,11.3    c-0.6,2.5-3.1,4.5-5.5,4.5h-4.3l1.9-8.9h4.6C105.3,6.9,106.7,8.9,106.2,11.3z"></path>
+								<path class="st1"
+											d="M44.5,6.9c-4.1,0-7.3,1.1-9.6,1.6l-0.8,6.2c1.1-0.6,5-1.7,8.2-1.8c3.2-0.1,5.1,0.6,4.5,3.4    c-9.5,0-15.9,2-17.3,8.2c-1.9,10.7,9.7,10.4,14.2,5.7l-0.6,2.6h8.6l3.7-17C57,8.6,50.4,6.8,44.5,6.9z M45.1,24.3    c-0.5,2.3-2.4,3.3-4.5,3.4c-1.9,0.1-3.5-1.6-2.3-3.6c0.9-1.7,3.6-2.1,5.1-2.1c0.8,0,1.4,0,2.2,0C45.4,22.8,45.2,23.5,45.1,24.3z"></path>
+								<polygon class="st1"
+												 points="59.2,7.3 67.8,7.3 69.2,22.5 77.6,7.3 86.4,7.3 66,43.7 56.5,43.7 62.7,33 59.2,7.3 59.2,7.3  "></polygon>
+								<path class="st1"
+											d="M23.1,0.2h-16L0,32.8h9.4L11.7,22h6.7c6.4,0,11.8-4,13.2-10.7C33.3,3.7,27.8,0.2,23.1,0.2z M22.8,11.3    c-0.6,2.5-3,4.5-5.4,4.5H13l2-8.9h4.6C22,6.9,23.5,8.9,22.8,11.3z"></path>
+								<path class="st2" d="M157.2,4.4V0.5h-1.4V0h3.5v0.5h-1.4v3.9H157.2z"></path>
+								<path class="st2"
+											d="M159.8,4.4V0h0.9l1,3.1c0.1,0.3,0.2,0.5,0.2,0.6c0-0.2,0.1-0.4,0.2-0.7l1-3h0.8v4.4h-0.6V0.7l-1.3,3.7h-0.5    l-1.3-3.7v3.7H159.8z"></path>
+							</svg>
+						</div>
+					</div>
+					<div class="cardInfo" ng-class="cardInfo">
+						<label for="cardNumber" class="cardNumber">Card Number</label>
+						<div id="cardNumber" class="hosted-field">
+						</div>
+						<div class="span ccInfo">
+							<div class="expiry"><label for="expiry">Expiration</label>
+								<div id="expiry" class="hosted-field">
+								</div>
+							</div>
+							<div class="cvv2">
+								<label for="cvv2">CVV2</label>
+								<div id="cvv2" class="hosted-field">
+								</div>
+								<div ng-click="toggleCvvHelp()" id="CVVbutton" tabindex="-1">?</div>
+							</div>
+							<div class="zipCode" id="zipdiv"><label for="zipCode">Postal Code</label>
+								<div id="zipCode" class="hosted-field">
+								</div>
+							</div>
+						</div>
+					</div>
+					<p class="paypalCopy" ng-class="paypalCopy">After entering your email and choosing a password, click the
+						button below to sign-in to your PayPal account and pay securely.</p>
+				</div>
+			</fieldset>
+			<p class="confirmEmail" ng-show="checkoutFormData.email">
+				<span>A confirmation email will be sent to </span><span class="email ng-binding"
+																																ng-bind="checkoutFormData.email"></span></p>
+			<a ng-click="doSubmit($event, 'credit')" class="button blue checkout" ng-show="isCreditCard"><span
+							ng-if="! submitting" class="ng-scope">Make Payment</span></a>
+			<a ng-click="doSubmit($event, 'paypal')" class="button blue checkout paypal ng-hide"
+				 ng-show="! isCreditCard"><span ng-if="! submittingPaypal" class="ng-scope">Checkout with PayPal</span></a>
+			<p class="error" id="errorMessage" ng-if="errorMsg" ng-bind-html="errorMsg" ng-class="errorMessage"></p>
+		</form>
+		<div class="waiting-paypal" ng-class="waitingPaypal">
+			<div class="waiting-copy">Please complete checkout in the Paypal pop-up window</div>
+		</div>
+	</div>
+</div>
+
+<footer class="ng-scope">
+
+
+	<ul class="inline-list footer-links text-center legal">
+		<li class="legal-links">
+			<span class="privacy">©2016 For Goodness Sake LLC</span>
+		</li>
+	</ul>
+
+
+</footer>
+
+<script src="{{ url_for('static', filename='js/foot.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/libs.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/checkout.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/all.min.js') }}"></script>
+
+</body>
+</html>

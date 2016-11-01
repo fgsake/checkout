@@ -1,0 +1,512 @@
+header {
+	padding: rem-calc(18) rem-calc(20);
+
+	@include bp-medium-up() {
+		padding: rem-calc(18) rem-calc(20);
+	}
+
+	@include bp-medium-768() {
+		padding: rem-calc(18) rem-calc(50);
+	}
+
+	*, p, a {
+		-moz-hyphens:none;
+		-ms-hyphens:none;
+		-webkit-hyphens: none;
+		hyphens:none;
+	}
+
+	*, p, a {
+		word-break:keep-all;
+	}
+
+	.header {
+		overflow: hidden;
+		position: relative;
+		padding: 0;
+
+		.welcomeOverlay {
+			position: fixed;
+			top: 56px;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 10;
+			background-color: rgba(0, 0, 0, .6);
+
+			@include bp-medium-up() {
+				top: 60px;
+			}
+		}
+
+		.welcomeModal {
+			position: fixed;
+			top: 56px;
+			right: 0;
+			background-color: #ebe8e5;
+			z-index: 20;
+			padding: 24px 20px 20px;
+			max-width: 557px;
+			overflow: hidden;
+
+			@media only screen and (max-width: 670px) {
+				@include bp-landscape() {
+					max-width: 100%;
+					padding: 12px;
+				}
+			}
+
+			@include bp-medium-up() {
+				top: 60px;
+				padding: 50px;
+			}
+
+			.close-reveal-modal {
+				position: absolute;
+				top: 14px;
+				right: 22px;
+				font-size: rem-calc(36);
+				color: #959595;
+
+				@media only screen and (max-width: 670px) {
+					@include bp-landscape() {
+						top: 8px;
+						right: 12px;
+					}
+				}
+
+				&:hover {
+					color: #000000;
+				}
+			}
+
+			h2 {
+				font-family: $avenir-book;
+				font-size: rem-calc(24);
+				line-height: rem-calc(27);
+				text-align: center;
+				color: #4e4e4e;
+				margin-bottom: rem-calc(18);
+
+				@media only screen and (max-width: 670px) {
+					@include bp-landscape() {
+						font-size: rem-calc(16);
+						margin-bottom: rem-calc(9);
+					}
+				}
+
+				@include bp-medium-up() {
+					text-align: left;
+				}
+			}
+
+			.block {
+				overflow: hidden;
+				margin-bottom: rem-calc(9);
+
+				.icon, .expand {
+					@extend %svgIcon;
+
+					float: left;
+					width: rem-calc(36);
+					height: rem-calc(36);
+					margin-right: rem-calc(16);
+
+					@media only screen and (max-width: 670px) {
+						@include bp-landscape() {
+							width: rem-calc(24);
+							height: rem-calc(24);
+							margin-right: rem-calc(8);
+						}
+					}
+
+					.symbol, .emptyCircle {
+						fill: #00aeef;
+
+						&.stroke {
+							fill: none;
+							stroke: #00aeef;
+						}
+					}
+
+					&.icon-arrow-down {
+						height: rem-calc(24);
+
+						@media only screen and (max-width: 670px) {
+							@include bp-landscape() {
+								height: rem-calc(16);
+							}
+						}
+
+						.symbol {
+							fill: rgba(0, 0, 0, .5);
+						}
+					}
+
+					&.expand {
+						height: rem-calc(27);
+
+						@media only screen and (max-width: 670px) {
+							@include bp-landscape() {
+								height: rem-calc(17);
+							}
+						}
+					}
+				}
+
+				.text {
+					max-width: 345px;
+					margin-left: rem-calc(52);
+
+					@media only screen and (max-width: 670px) {
+						@include bp-landscape() {
+							max-width: 100%;
+						}
+					}
+
+					.copy {
+						font-family: $avenir-book;
+						font-size: rem-calc(16);
+						line-height: rem-calc(19);
+						color: #4e4e4e;
+						margin-bottom: 0;
+
+						@media only screen and (max-width: 670px) {
+							@include bp-landscape() {
+								font-size: rem-calc(12);
+								line-height: rem-calc(14);
+							}
+						}
+					}
+				}
+			}
+
+			.button {
+				display: block;
+				margin: 0 auto;
+				width: 210px;
+				font-size: rem-calc(16);
+				line-height: rem-calc(44);
+				padding: 0;
+				margin-top: rem-calc(30);
+
+				@media only screen and (max-width: 670px) {
+					@include bp-landscape() {
+						margin-top: rem-calc(16);
+						font-size: rem-calc(12);
+						line-height: rem-calc(30);
+					}
+				}
+
+				@include bp-medium-up() {
+					float: right;
+				}
+			}
+
+			&.discount {
+				h2 {
+					font-family: $novecento-normal;
+					text-align: center;
+					margin: rem-calc(36) 0 rem-calc(24);
+					padding-bottom: rem-calc(24);
+					border-bottom: solid #4e4e4e;
+					border-width: rem-calc(1) 0;
+
+					@include bp-medium-up() {
+						margin-top: rem-calc(8);
+					}
+				}
+
+				.copy {
+					text-align: center;
+					margin: 0 rem-calc(8);
+					max-width: rem-calc(340);
+
+					@include bp-medium-up() {
+						margin: 0 auto;
+					}
+				}
+
+				.button.blue {
+					margin-left: auto;
+					margin-top: rem-calc(40);
+					float: none;
+
+					@include bp-medium-up() {
+						margin-top: rem-calc(8);
+					}
+				}
+			}
+		}
+	}
+
+	.logo {
+		overflow: hidden;
+		float: left;
+
+		a {
+			display: block;
+			overflow: hidden;
+			float: left;
+
+			@include bp-medium-up() {
+				margin: 12px 0;
+			}
+
+			@include bp-large-up() {
+				margin: 16px 0;
+			}
+
+			object {
+				display: block;
+				height: auto;
+				position: relative;
+				padding-top: 20%; // 32 out of 160
+				width: 95px;
+
+				@include bp-medium-up() {
+					width: 180px;
+				}
+
+				svg {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+			}
+		}
+	}
+
+	.links {
+		float: right;
+		margin-bottom: 0;
+		font-family: $avenir-medium;
+
+		@include bp-small-up() {
+			@media #{$portrait} {
+				font-family: $avenir-book;
+				font-size: rem-calc(12);
+				line-height: rem-calc(30);
+			}
+
+			@media #{$landscape} {
+				line-height: rem-calc(16);
+			}
+		}
+
+		li {
+			a {
+				@extend %svgIcon;
+
+				@include bp-small-up() {
+					@media #{$portrait} {
+						color: #ffffff;
+					}
+				}
+			}
+
+			&:hover {
+				@include bp-small-up() {
+					@media #{$portrait} {
+						color: #898989;
+
+						.icon {
+							fill: #898989;
+						}
+					}
+				}
+			}
+
+			&.browse {
+				@include bp-small-up() {
+					@media #{$landscape} {
+						display: none;
+					}
+				}
+			}
+
+			&.hamburger {
+				@include bp-small-up() {
+					@media #{$landscape} {
+						display: block;
+
+						img {
+							width: 11px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.menu-toggle {
+		display: block;
+		height: auto;
+		position: absolute;
+
+		@include bp-small-up() {
+			top: 0;
+			right: 0;
+			width: 16px;
+			height: 16px;
+		}
+
+		@include bp-medium-up() {
+			display: block;
+			position: absolute;
+			top: 6px;
+			right: 0;
+			width: 32px;
+			height: 32px;
+		}
+
+		@include bp-medium-768() {
+			display: none;
+		}
+
+		svg {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+
+			path {
+				fill: #231f20;
+			}
+		}
+	}
+
+	.mobileSideMenu {
+		position: fixed;
+		top: 0;
+		right: -320px;
+		width: 246px;
+		margin: 0;
+		background-color: #242221;
+		z-index: 100;
+		list-style: none;
+		box-shadow: 0px -3px 27.36px 10.64px rgba(0, 0, 0, 0.35);
+		overflow-y: auto;
+		max-height: 100%;
+
+		@include bp-small-up() {
+			display: block;
+		}
+
+		@include bp-medium-up() {
+			display: block;
+		}
+
+		@include bp-medium-768() {
+			display: none;
+		}
+
+		@include transition(right);
+
+		&.open {
+			right: 0;
+		}
+
+		li {
+			border-top: 1px solid #5d5f62;
+
+			a {
+				color: #939598;
+				font-size: rem-calc(18);
+				line-height: 1em;
+				text-transform: uppercase;
+				padding: rem-calc(16) rem-calc(24);
+				display: block;
+
+				@extend %svgIcon;
+
+				&:hover {
+					color: #ffffff;
+				}
+			}
+
+			&.menuClose {
+				border-top: 0;
+				background-color: #1b1a19;
+
+				a {
+					text-align: right;
+					font-size: rem-calc(48);
+					color: #fff;
+					font-family: $avenir-light;
+					padding: rem-calc(2) rem-calc(9);
+				}
+			}
+
+			&.menuLogo {
+				border-top: 0;
+				background-color: #1b1a19;
+
+				.logo {
+					float: none;
+
+					a {
+						float: none;
+						padding: rem-calc(8) rem-calc(24) rem-calc(24);
+
+						object {
+							margin: 0 auto;
+							width: rem-calc(112);
+							padding-top: rem-calc(24);
+
+							.letterO, .letterM, .letterG {
+								fill: #939598;
+							}
+
+							.letterY, .letterE, .letterS {
+								fill: #ffffff;
+							}
+						}
+					}
+				}
+			}
+
+			&.getStarted {
+				padding: rem-calc(20);
+
+				.button {
+					font-size: rem-calc(16);
+					line-height: rem-calc(44);
+					padding: 0;
+				}
+			}
+
+			&.active {
+				background-color: #5d5f62;
+				border-top-color: #5d5f62;
+
+				a {
+					color: #1b1a19;
+				}
+			}
+		}
+
+		.sub-nav {
+			list-style: none;
+			padding-top: 0;
+			margin-top: rem-calc(-8);
+			padding-bottom: rem-calc(16);
+
+			li {
+				font-size: rem-calc(16);
+				border-top: 0;
+				margin-left: 0;
+				float: none;
+
+				a {
+					font-size: rem-calc(14);
+					text-transform: none;
+					padding: rem-calc(4) rem-calc(12);
+				}
+			}
+		}
+	}
+}
