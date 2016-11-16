@@ -10,6 +10,8 @@ you're welcome to change it.
 
 To create a development environment, you'll need to install [VirtualBox](https://www.virtualbox.org/wiki/Downloads), and [Vagrant](https://www.vagrantup.com/docs/installation/). (See links for downloads and installation instructions).
 
+If you're using macOS, you should probably install Vagrant using Homebrew, not their installer. The bundled cURL seems to cause issues for some. (See https://github.com/mitchellh/vagrant/issues/5016#issuecomment-260065012)
+
 VirtualBox allows you to run virtual machines on your host operating system. Vagrant is a convenient way to distribute a
 virtual machine image that is set up with all of the necessary tools for development.
 
