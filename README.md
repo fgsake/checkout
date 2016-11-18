@@ -74,6 +74,12 @@ Finally, install the JavaScript requirements:
 
 **You'll need to run `grunt all` at least once after installation to view the site properly.**
 
+### The checkout process
+We are using Braintree to process our payments. There is a [getting started guide](https://developers.braintreepayments.com/start/hello-client/javascript/v3) that may be helpful as an orientation.
+
+You can checkout using a credit card with the number `4111 1111 1111 1111`, any CVV and postal code, and any
+expiration date in the future.
+
 ## Tasks
 We're asking candidates to complete as many of the tasks below as possible. They are listed in approximate order of
 complexity.
