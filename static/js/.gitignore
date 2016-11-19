@@ -1,4 +1,4 @@
 # Ignore everything in this directory
-*
+*.min.*
 # Except this file
 !.gitignore

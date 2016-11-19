@@ -1,16 +1,4 @@
 exports.task = {
-    frontend: {
-      js: ['../src/js/app.js', '../src/js/directives.js', '../src/js/services/*.js', '../src/js/controllers/*.js'],
-      jsOutputFile: '../static/js/all.min.js',
-      maxBuffer: 500,
-      closurePath: '../closure-compiler',
-      options: {
-        compilation_level: 'SIMPLE_OPTIMIZATIONS',
-        language_in: 'ES5',
-        create_source_map: '../static/js/all.min.js.map',
-        output_wrapper: '%output%//# sourceMappingURL=all.min.js.map'
-      }
-    },
     frontendLibs: {
         js: ['../lib/jquery.scrollTo.min.js', '../lib/mm-foundation-tpls-0.6.0.js', '../lib/jquery.detect_swipe.js'],
         jsOutputFile: '../static/js/libs.min.js',
